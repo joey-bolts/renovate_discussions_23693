@@ -45,7 +45,6 @@
         "patch"
       ],
       "automerge": false,
-      "updateTypes": ["patch"],
       "excludePackagePatterns": [
         "^typo3/cms-",
         "^company/"
