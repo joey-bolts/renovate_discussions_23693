@@ -2,4 +2,9 @@
 module.exports = {
     baseBranches: ["main", "master"],
     enabledManagers: "composer",
+    repositories: [
+        {
+            repository: 'joey-bolts/renovate_discussions_23693'
+        },
+    ],
 };
