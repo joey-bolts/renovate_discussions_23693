@@ -3,7 +3,7 @@
   "description": "Base Distribution",
   "license": "GPL-2.0+",
   "require": {
-    "deployer/deployer": "^7.0"
+    "apache-solr-for-typo3/solr": "^11.0"
   },
   "config": {
     "allow-plugins": {
