@@ -1,0 +1,73 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": true,
+  "gitLabIgnoreApprovals": true,
+  "platformAutomerge": true,
+  "automergeType": "pr",
+  "autoApprove": true,
+  "extends": [
+    "config:base",
+    ":disableDependencyDashboard",
+    ":separatePatchReleases"
+  ],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "enabledManagers": [
+    "composer"
+  ],
+  "separateMinorPatch": true,
+  "commitMessagePrefix": "[#0] RENOVATE - ",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": " ({{{displayFrom}}} => {{{displayTo}}})",
+  "rangeStrategy": "update-lockfile",
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "pin",
+        "digest",
+        "major"
+      ],
+      "enabled": false
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "matchPackagePrefixes": [
+        "company/"
+      ],
+      "groupName": "COMPANY",
+      "enabled": false
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "automerge": false,
+      "updateTypes": ["patch"],
+      "excludePackagePatterns": [
+        "^typo3/cms-",
+        "^company/"
+      ],
+      "groupName": "MINOR PATCHES",
+      "labels": [
+        "minor-patches"
+      ],
+      "enabled": true
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "matchPackagePrefixes": [
+        "typo3/cms-"
+      ],
+      "groupName": "TYPO3 CMS",
+      "labels": [
+        "typo3"
+      ],
+      "enabled": true
+    }
+  ]
+}

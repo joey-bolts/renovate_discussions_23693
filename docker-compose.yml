@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  php-cli:
+    build:
+      context: ./docker/php
+    volumes:
+      - .:/var/www/html
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ~/.ssh:/home/php-cli/.ssh
+    user: 1000:1000
+    working_dir: /var/www/html
+    command: 'tail -f /dev/null'
