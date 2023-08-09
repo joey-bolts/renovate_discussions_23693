@@ -6,8 +6,7 @@ test:
     RENOVATE_TOKEN: $RENOVATE_WEB_TOKEN
     RENOVATE_COMPOSER_IGNORE_PLATFORM_REQS: 'false'
   script:
-    - renovate $RENOVATE_EXTRA_FLAGS 2>1 | tee job_output.txt
-  when: manual
+    - renovate --platform=local
   artifacts:
     paths:
       - job_output.txt
